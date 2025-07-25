@@ -1,0 +1,191 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+
+<!-- <main class="main">
+  <amplify-authenticator
+    [loginMechanisms]="['email']"
+    [formFields]="formFields">
+    <ng-template
+      amplifySlot="authenticated"
+      let-user="user"
+      let-signOut="signOut">
+      <h1>Welcome {{ user.username }}!</h1>
+      <p>SSN: {{ user.attributes['custom:ssnNumber'] }}</p>
+      <p>Gender: {{ user.attributes['custom:gender'] }}</p>
+      <button (click)="signOut()">Sign Out</button>
+    </ng-template>
+  </amplify-authenticator>
+</main> -->
+
+
+<!-- <amplify-authenticator [loginMechanisms]="['email']">
+  <ng-template amplifySlot="sign-up">
+    <div *ngIf="!showConfirmationScreen"><form (ngSubmit)="signUp()" #signUpForm="ngForm" class="amplify-form">
+      
+       <div class="amplify-field">
+        <label>Email</label>
+      <input name="email" [(ngModel)]="email" type="email" required />
+       </div>
+
+      <label>Password</label>
+      <input name="password" [(ngModel)]="password" type="password" required />
+
+      <label>SSN Number</label>
+      <input name="ssnNumber" [(ngModel)]="ssnNumber" type="text" required />
+
+      <label>Gender</label>
+      <select name="gender" [(ngModel)]="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label>Phone Number</label>
+      <input name="phone_number" [(ngModel)]="phoneNumber" type="tel" required />
+
+      <label>Birthdate</label>
+      <input name="birthdate" [(ngModel)]="birthdate" type="date" required />
+
+      <label>User Type</label>
+      <select name="userType" [(ngModel)]="userType" required>
+        <option value="">Select</option>
+        <option value="TypeA">Type A</option>
+        <option value="TypeB">Type B</option>
+      </select>
+
+      <button type="submit">Sign Up</button>
+    </form></div>
+    <div *ngIf="showConfirmationScreen">
+      <form (ngSubmit)="confirmUser()" #confirmForm="ngForm">
+        <label>Confirmation Code</label>
+        <input
+          name="confirmationCode"
+          [(ngModel)]="confirmationCode"
+          type="text"
+          required
+        />
+        <button type="submit">Confirm</button>
+      </form>
+    </div>
+    
+  </ng-template>
+
+  <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+    <h2>Welcome {{ user.username }}!</h2>
+    <button (click)="signOut()">Sign Out</button>
+  </ng-template>
+</amplify-authenticator> -->
+
+
+<amplify-authenticator [loginMechanisms]="['email']">
+  <ng-template amplifySlot="sign-up">
+    <div *ngIf="!showConfirmationScreen" class="amplify-flex amplify-authenticator-container">
+      <form (ngSubmit)="signUp()" #signUpForm="ngForm" class="amplify-form">
+
+        <div class="amplify-field">
+          <label class="amplify-label">Email</label>
+          <input class="amplify-input" name="email" [(ngModel)]="email" type="email" required />
+        </div>
+
+        <div class="amplify-field">
+          <label class="amplify-label">Password</label>
+          <input class="amplify-input" name="password" [(ngModel)]="password" type="password" required />
+        </div>
+
+        <div class="amplify-field">
+          <label class="amplify-label">SSN Number</label>
+          <input class="amplify-input" name="ssnNumber" [(ngModel)]="ssnNumber" type="text" required />
+        </div>
+
+        <div class="amplify-field">
+          <label class="amplify-label">Gender</label>
+          <select class="amplify-input" name="gender" [(ngModel)]="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="amplify-field">
+          <label class="amplify-label">Phone Number</label>
+          <input class="amplify-input" name="phone_number" [(ngModel)]="phoneNumber" type="tel" required />
+        </div>
+
+        <div class="amplify-field">
+          <label class="amplify-label">Birthdate</label>
+          <input class="amplify-input" name="birthdate" [(ngModel)]="birthdate" type="date" required />
+        </div>
+
+        <div class="amplify-field">
+          <label class="amplify-label">User Type</label>
+          <select class="amplify-input" name="userType" [(ngModel)]="userType" required>
+            <option value="">Select</option>
+            <option value="TypeA">Type A</option>
+            <option value="TypeB">Type B</option>
+          </select>
+        </div>
+
+        <div class="amplify-buttons">
+          <button class="amplify-button amplify-field-group__control" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="showConfirmationScreen">
+      <form (ngSubmit)="confirmUser()" #confirmForm="ngForm" class="amplify-form">
+        <div class="amplify-field">
+          <label class="amplify-label">Confirmation Code</label>
+          <input class="amplify-input" name="confirmationCode" [(ngModel)]="confirmationCode" type="text" required />
+        </div>
+        <div class="amplify-buttons">
+          <button class="amplify-button amplify-field-group__control" type="submit">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+    <h2>Welcome {{ user.username }}!</h2>
+    <button class="amplify-button amplify-field-group__control" (click)="signOut()">Sign Out</button>
+  </ng-template>
+</amplify-authenticator>
+
+
+<!-- <main class="main">
+  <form (submit)="onSignUp($event)">
+    <label>Email:</label>
+    <input name="email" type="email" required /><br />
+
+    <label>Password:</label>
+    <input name="password" type="password" required /><br />
+
+    <label>Name:</label>
+    <input name="name" type="text" required /><br />
+
+    <label>Phone Number:</label>
+    <input name="phone_number" type="tel" required /><br />
+
+    <label>SSN Number:</label>
+    <input name="ssn" type="text" required /><br />
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <div *ngIf="user">
+    <h1>Welcome {{ user.username }}!</h1>
+    <button (click)="signOut()">Sign Out</button>
+  </div>
+</main> -->
+
+
+
+<router-outlet />
